@@ -6,7 +6,7 @@ From Covid_Data.covid_vaccinations;
 
 Select Location, date, total_cases, new_cases, total_deaths, population
 From Covid_Data.covid_deaths
-Order by 1, 2;
+Order by Location, date;
 
 
 #Total Cases vs Total Deaths --(Death percantage if you contacted Covid)
@@ -14,7 +14,7 @@ Order by 1, 2;
 Select Location, date, total_cases, total_deaths,(total_deaths/total_cases)*100 AS death_percentage
 From Covid_Data.covid_deaths
 Where Location like 'Europe'
-Order by 1, 2;
+Order by Location, date;
 
 # Total Cases vs Population --(What percent of population has gotten Covid)
 
@@ -61,7 +61,7 @@ Join Covid_Data.covid_vaccinations as vax
     On dea.location = vax.location
     and dea.date = vax.date
     Group by dea.continent, dea.location
-    Order by 1;
+    Order by dea.continent;
 
 ##Rolling count new tests per day
 
