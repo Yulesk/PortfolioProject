@@ -70,7 +70,7 @@ SUM(CAST(vax.new_tests as Signed)) over (partition by dea.location order by dea.
 From Covid_Data.covid_deaths as dea
 Join Covid_Data.covid_vaccinations as vax
     On dea.location = vax.location
-    and dea.date = vax. date
+    and dea.date = vax.date
     order by 2,3;
 
 ## Percent of total vaccinated population
@@ -80,7 +80,7 @@ case when Round((total_vaccinations/Population)*100, 3) > 100 then 'due to secon
 from Covid_Data.covid_deaths as dea
 Join Covid_Data.covid_vaccinations as vax
     On dea.location = vax.location
-    and dea.date = vax. date
+    and dea.date = vax.date
 Order by 2,3;
 
 
